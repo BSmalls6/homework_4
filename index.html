@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homework 5 Quiz</title>
-    <link type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" src="style.css"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" src="style.css" />
 </head>
+
 <body>
     <div class="container">
-        <header class = "row border-bottom-light">
-             <div class ="btn btn-light text-primary" id = "results">View Highscores</div>  
-             <div class="col-sm-8 text-right" id="timer">Time: 0</div>
+        <header class="row border-bottom-light">
+            <div class="btn btn-light text-primary m-1" id="results">View Highscores</div>
+            <div class="col-sm-8 text-right" id="timer"></div>
         </header>
-    <div class="quiz">    </div>
-            <button class="btn-primary" id="submit">Submit Quiz</button>
+        <div class="row text-content-center">
+            <div class="col-lg-6 text-justify-center" id="quiz">
+                <div class="Start col-lg-6 m-5 p-3">
+                    <h2>Click the button below to start the quiz</h2>
+                    <button class="btn-primary m-2" id="start">Start Quiz</button>
+                </div>
+                <div class="Qslide card p-2" style="display: none">
+                    <div class="question mb-2 p-1">Question</div>
+                    <div class="choices"></div>
+                    <!-- <div class="ansBTN btn-primary m-1 p-1">Answer A</div>
+                    <div class="ansBTN btn-primary m-1 p-1">Answer B</div>
+                    <div class="ansBTN btn-primary m-1 p-1">Answer C</div>
+                    <div class="ansBTN btn-primary m-1 p-1">Answer D</div> -->
+                </div>
+                <div class="EndSlide jumbotron p-2" style="display: none">
+                    <h3>You finished!</h3>
+                    <div class="ScoreCard card m-2">Your Score = 0</div>
+                    <button class="btn-primary m-2" id="Reset">Start Again</button>
 
-    
+                </div>
+            </div>
+        </div>
     </div>
-    
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
