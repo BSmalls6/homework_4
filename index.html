@@ -20,11 +20,11 @@
         </header>
         <div class="row text-content-center">
             <div class="col-lg-6 text-justify-center" id="quiz">
-                <div class="Start col-lg-6 m-5 p-3">
+                <div class="start col-lg-6 m-5 p-3">
                     <h2>Click the button below to start the quiz</h2>
                     <button class="btn-primary m-2" id="start">Start Quiz</button>
                 </div>
-                <div class="Qslide card p-2" style="display: none">
+                <div class="qSlide card p-2" style="display: none">
                     <div class="question mb-2 p-1">Question</div>
                     <div class="choices"></div>
                     <!-- <div class="ansBTN btn-primary m-1 p-1">Answer A</div>
@@ -32,10 +32,10 @@
                     <div class="ansBTN btn-primary m-1 p-1">Answer C</div>
                     <div class="ansBTN btn-primary m-1 p-1">Answer D</div> -->
                 </div>
-                <div class="EndSlide jumbotron p-2" style="display: none">
+                <div class="endSlide jumbotron p-2" style="display: none">
                     <h3>You finished!</h3>
-                    <div class="ScoreCard card m-2">Your Score = 0</div>
-                    <button class="btn-primary m-2" id="Reset">Start Again</button>
+                    <div class="scoreCard card m-2">Your Final Score is: <span id="displayScore"></span> </div>
+                    <button class="btn-primary m-2" id="reset" type="submit">Start Again</button>
 
                 </div>
             </div>

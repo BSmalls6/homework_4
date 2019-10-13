@@ -57,22 +57,25 @@ $(document).ready(function () {
     var score = 0;
 
     $("#start").on("click", startQuiz);
+    $("#reset").on("click", function(){
+        location.reload();
+    });
+
+    // $("#reset").on("click", startQuiz);
     // ii. when first question displays, timer starts counting down
 
     // 2. build quiz
     function startQuiz() {
-        event.preventDefault();
+        // event.preventDefault();
         timer();
-        $(".Start").hide();
-        $(".Qslide").show();
-        if (i<=5){
-            buildQuiz();
-        }
-        else{
-            showScore();
-        }
+        $(".start").hide();
+        $(".qSlide").show();
+        $(".endSlide").hide();
+        buildQuiz();
     };
-   
+
+
+
 
 
     // timer function
@@ -92,25 +95,37 @@ $(document).ready(function () {
         };
     }
     $(".choices").on("click", '#choice', function () {
-        var selection = $(this).attr("value");
-        // console.log(selection);
+        var selection = parseInt($(this).attr("value"));
+        // console.log(typeof selection);
         // console.log(myQuestions[i].correctAnswer);
         if (selection === myQuestions[i].correctAnswer) {
             score++;
-            $(".question").append("Correct!")
+            $(".grade").html("Correct!")
             i++;
             $(".choices").empty();
-            console.log(i)
-            buildQuiz();
+            // console.log("correct", i)
+            if (i <= 4) {
+                buildQuiz();
+            }
+            else {
+                showScore();
+            }
+            console.log("correct",score);
         }
         else {
             timeleft = -15
-            $(".question").append("Wrong")
+            $(".grade").html("Wrong")
             i++;
             $(".choices").empty();
-            console.log(i)
+            // console.log(i)
+            if (i <= 4) {
+                buildQuiz();
+            }
+            else {
+                showScore();
+            }
+            console.log("wrong",score);
 
-            buildQuiz();
         }
     });
 
@@ -121,22 +136,28 @@ $(document).ready(function () {
         for (let j = 0; j < 4; j++) {
             var choicebtn = $("<div id='choice'></div>")
             var currentAns = currentQuestion.answers[j];
-            choicebtn.addClass("btn btn-primary")
-            choicebtn.attr("value", j)
+            choicebtn.addClass("btn btn-primary");
+            choicebtn.attr("value", j);
             $(".choices").append(choicebtn);
-            choicebtn.html(currentAns)
-            console.log(currentAns)          // if answer = correct answer - show correct, else show wrong
+            choicebtn.html(currentAns);
+            // console.log(currentAns)          // if answer = correct answer - show correct, else show wrong
         }
 
+    };
+    function showScore() {
+        $(".qSlide").hide();
+        $(".endSlide").show();
+        $("#displayScore").text(score);
     };
 
 });
 
-function showScore(){
-    $("Qslide").hide();
-    $("Endslide").show();
-    $(".ScoreCard").html("Your Final Score is:"+" "+score);
-}
+function showScore() {
+    $(".qSlide").hide();
+    $(".endSlide").show();
+    $("#displayScore").text(score);
+};
+
 // function test () {
 //     var selection = parseInt(this.value);
 //     console.log(selection);
