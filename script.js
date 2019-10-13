@@ -63,12 +63,16 @@ $(document).ready(function () {
     function startQuiz() {
         event.preventDefault();
         timer();
-        buildQuiz();
         $(".Start").hide();
         $(".Qslide").show();
-        // get question
-        // for (let i = 0; i < myQuestions.length; i++) {
+        if (i<=5){
+            buildQuiz();
+        }
+        else{
+            showScore();
+        }
     };
+   
 
 
     // timer function
@@ -87,16 +91,16 @@ $(document).ready(function () {
             }
         };
     }
-    $(".choices").on("click", '#choice' ,  function () {
+    $(".choices").on("click", '#choice', function () {
         var selection = $(this).attr("value");
-        console.log(selection);
-        console.log(myQuestions[i].correctAnswer);
-
+        // console.log(selection);
+        // console.log(myQuestions[i].correctAnswer);
         if (selection === myQuestions[i].correctAnswer) {
             score++;
             $(".question").append("Correct!")
             i++;
             $(".choices").empty();
+            console.log(i)
             buildQuiz();
         }
         else {
@@ -104,6 +108,8 @@ $(document).ready(function () {
             $(".question").append("Wrong")
             i++;
             $(".choices").empty();
+            console.log(i)
+
             buildQuiz();
         }
     });
@@ -116,15 +122,21 @@ $(document).ready(function () {
             var choicebtn = $("<div id='choice'></div>")
             var currentAns = currentQuestion.answers[j];
             choicebtn.addClass("btn btn-primary")
-            choicebtn.attr("value" , j)
+            choicebtn.attr("value", j)
             $(".choices").append(choicebtn);
             choicebtn.html(currentAns)
             console.log(currentAns)          // if answer = correct answer - show correct, else show wrong
         }
-        
+
     };
 
 });
+
+function showScore(){
+    $("Qslide").hide();
+    $("Endslide").show();
+    $(".ScoreCard").html("Your Final Score is:"+" "+score);
+}
 // function test () {
 //     var selection = parseInt(this.value);
 //     console.log(selection);
