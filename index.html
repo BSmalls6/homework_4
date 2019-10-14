@@ -35,8 +35,14 @@
                 <div class="endSlide jumbotron p-2" style="display: none">
                     <h3>You finished!</h3>
                     <div class="scoreCard card m-2">Your Final Score is: <span id="displayScore"></span> </div>
-                    <button class="btn-primary m-2" id="reset" type="submit">Start Again</button>
-
+                    <form>
+                        <input type="text" id="name" placeholder="Your Name Here"><br>
+                        <input class="btn-primary m-2" id="reset" type="submit" value="Submit">
+                      </form> 
+                </div>
+                <div class="scorePage" style="display: none">
+                    <h2>HighScores</h2>
+                    <div class="scoreTable jumbotron"></div>
                 </div>
             </div>
         </div>
